@@ -99,12 +99,12 @@ export default function HomeBanner() {
           <TypingText
             text="MetaTraining"
             speed={100}
-            className="font-mono text-[80px] text-white"
+            className="font-mono text-[50px] text-white"
           />
         </div>
         <div className="flex w-full items-center justify-center">
           <button
-            className="rounded-md bg-blue-600 py-4 px-8 font-mono text-3xl text-white"
+            className="rounded-md bg-blue-600 py-3 px-4 font-mono text-xl text-white"
             onClick={() => ContractCall()}
           >
             {isLoggedIn ? 'Claim' : 'Connect Wallet'}
