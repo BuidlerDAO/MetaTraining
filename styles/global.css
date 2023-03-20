@@ -1,0 +1,38 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.body {
+  overflow-x: 'none';
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 10px;
+  background-color: #e3e3e3;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* 滑块颜色 */
+  border-radius: 4px; /* 圆角半径 */
+}
+
+.dark ::-webkit-scrollbar {
+  background-color: black;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #666;
+}
+
+/* Light mode */
+.react-syntax-highlighter-code-block.light {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Dark mode */
+.react-syntax-highlighter-code-block.dark {
+  background-color: #111;
+  color: #f8f8f2;
+}
