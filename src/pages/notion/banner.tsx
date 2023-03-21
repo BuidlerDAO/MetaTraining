@@ -1,7 +1,5 @@
 import { abi } from '@/apis/abi';
-import Bg from '@/assets/website/cool_background.svg';
 import toast from '@/ui/toast/toast';
-import TypingText from '@/ui/typingText';
 import { getCookie, setCookie } from '@/utils/cookie';
 import { switchWeb3ChainId } from '@/utils/web3';
 import { ethers } from 'ethers';
@@ -30,8 +28,8 @@ export default function HomeBanner() {
         try {
           await window.ethereum.request({ method: 'eth_requestAccounts' });
           setIsLoggedIn(true);
-        } catch (error) {
-          console.log(error);
+        } catch (error: any) {
+          toast.error(error.message);
         }
       }
       const contractWithSigner = contract.connect(signer);
@@ -86,32 +84,14 @@ export default function HomeBanner() {
   }, []);
 
   return (
-    <div
-      className="relative h-[700px] w-full"
-      style={{
-        backgroundImage: `url(${Bg})`,
-        backgroundPosition: 'center 100%',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <div className="absolute top-1/3 left-1/2 w-full translate-x-[-50%] translate-y-[-50%] px-[2rem] text-sm md:px-20">
-        <div className="h-40"></div>
-        <div className="mt-[10rem] mb-20 text-center text-6xl font-bold text-white">
-          <TypingText
-            text="MetaTraining"
-            speed={100}
-            className="font-mono text-[50px] text-white"
-          />
-        </div>
-        <div className="flex w-full items-center justify-center">
-          <button
-            className="rounded-md bg-blue-600 py-3 px-4 font-mono text-xl text-white"
-            onClick={() => ContractCall()}
-          >
-            {isLoggedIn ? 'Claim' : 'Connect Wallet'}
-          </button>
-        </div>
+    <div className="relative h-[150px] w-full">
+      <div className="flex w-full items-start justify-start">
+        <button
+          className="m-3 rounded-md bg-blue-600 py-2 px-3 font-mono text-base text-white"
+          onClick={() => ContractCall()}
+        >
+          {isLoggedIn ? 'Claim' : 'Connect Wallet'}
+        </button>
       </div>
     </div>
   );

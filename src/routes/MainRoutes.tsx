@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Layout from '@/components/layout';
 
 import Loadable from '@/components/Loadable';
+import NotionPage from '@/pages/notion';
 const Home = Loadable(lazy(() => import('@/pages/home')));
 const MainRoutes = {
   path: '/',
@@ -17,6 +18,10 @@ const MainRoutes = {
     {
       path: '/home',
       element: <Home />
+    },
+    {
+      path: '/notion',
+      element: <NotionPage />
     }
   ]
 };
